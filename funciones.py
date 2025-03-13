@@ -118,6 +118,7 @@ def tira1(M,C,F,vidas,turno):
 
 
 ### (Dummy) Todas las tiradas serán aleatorias
+
 def dif_0(M,C,F,vidas, turno):
     x = random.randint(0,9)
     y = random.randint(0,9)
