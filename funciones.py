@@ -209,6 +209,83 @@ def dif_1(M,C,F,vidas, turno, sec, futuro):
                                     futuro.append((x,y+k))
     return turno, acierto, sec
     
+"""
+def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
+    if not sec:
+        x = random.randint(0,9)
+        y = random.randint(0,9)
+        turno, acierto = disparo(M,C,F,vidas,x,y,turno)
+        if acierto:
+            tupla = (x,y)
+            for n,i in enumerate(F[0]):
+                if tupla in i.coord.keys():
+                    if F[0][n].vida == 0:
+                        sec = False
+                        futuro = []
+                    else:
+                        print("HAN TOCADO UN BARCO, PERO TODAVÍA NO ESTÁ HUNDIDO!\n\n\n*****************************************")
+                        futuro.append(tupla)
+                        sec = True
+                        for k in range(4):
+                            if dentro(x-k,y):
+                                if C[turno][x - k][y] == 0:
+                                    futuro.append((x-k,y))
+                                else:
+                                    break
+                            else:
+                                break
+                        for k in range(4):
+                            if dentro(x+k,y):
+                                if C[turno][x + k][y] == 0:
+                                    futuro.append((x+k,y))
+                                else:
+                                    break
+                            else:
+                                break
+                        for k in range(4):
+                            if dentro(x,y-k):
+                                if C[turno][x][y-k] == 0:
+                                    futuro.append((x,y-k))
+                                else:
+                                    break
+                            else:
+                                break        
+                        for k in range(4):
+                            if dentro(x,y+k):
+                                if C[turno][x][y+k] == 0:
+                                    futuro.append((x,y+k))
+                                else:
+                                    break
+                            else:
+                                break
+                        print(futuro)
+                            
+    else:
+        t = futuro[-1]
+        futuro.pop()
+        x = t[0]
+        y = t[1]
+        turno, acierto = disparo(M,C,F,vidas,x,y,turno)
+        if acierto:
+            for n,i in enumerate(F[0]):
+                if t in i.coord.keys():
+                    if F[0][n].vida == 0:
+                        sec = False
+                        futuro = []
+        else:
+            n = len(futuro)
+            while n > 0:
+                if futuro[n-1] == t:
+                    futuro.pop()
+                    n -= 1
+                else:
+                    break
+
+    return turno, acierto, sec
+    
+
+"""
+
 
 ### (Nivel 2) Similar al nivel 1, sólo que las próximas tiradas sólo las efectuará si sabe que hay un barco.
 ### Es decir, si toca un barco, en el mismo turno lo hundirá.
