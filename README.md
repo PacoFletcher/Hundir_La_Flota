@@ -2,8 +2,11 @@
 
 En este proyecto se ha creado un programa en Python para jugar al juego de Hundir la Flota contra la máquina.
 El programa consta de cinco archivos .py intercomunicados entre sí, en los que cada uno se encarga de realizar unas funciones específicas:
+
 1. inicio_partida.py (el main): En el se inicializa la partida, se llama al archivo `varialbes.py` para inicializar los mapas y parámetros de ambos jugadores y `jugada.py` donde se desarrollan las diferentes tiradas.
+
 2. En la inicialización de variables, se llama al archivo `tablero.py`, donde se asignan las posiciones de los barcos a la matriz de cada jugador, comprobando previamente que no existe ningún conflicto a la hora de desplegar el barco (las posiciones no salen del tablero, ningún otro barco ocupa una posición aledaña, etc.)
+
 3. En el archivo `funciones.py` se almacenan todas las acciones que se desempeñarán a lo largo de la partida, lo que ocurre al disparar, con qué nivel de inteligencia juega la máquina, determinar si un barco está hundido y rodear sus celdas de agua, etc.
 
 ## Inicialización de la partida
@@ -13,6 +16,7 @@ Cada vez que iniciemos una partida el programa nos pedirá elegir el nivel de di
 ## Sucesión de jugadas
 
 Una vez elegida la dificultad, iniciará nuestro turno, en el que se imprimirá por pantalla nuestro tablero "check" y se solicitará primero el input de la coordenada fila y a continuación la coordenada columna. Si realizamos una entrada no válida la máquina nos avisará y nos pedirá que repitamos la introducción de variables. Los escenarios que contempla son los siguientes:
+
 * Alguna de las variables no es numérica.
 * Alguna de las variables excede los límites del tablero.
 * Las coordenadas asignadas ya han sido visitadas.
