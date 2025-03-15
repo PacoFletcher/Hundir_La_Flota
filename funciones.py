@@ -162,9 +162,25 @@ MEJORA DE DIF_1
             
 """
 
-
-
-
+def fallo_dif_1(futuro, dir):
+    aux = []
+    for n,i in enumerate(futuro):
+        if dir == 'N':
+            if i[0] < futuro[0][0]:
+                aux.append(futuro[n])
+        if dir == 'S':
+            if i[0] > futuro[0][0]:
+                aux.append(futuro[n])
+        if dir == "O":
+            if i[1] < futuro[0][1]:
+                aux.append(futuro[n])
+        if dir == "E":
+            if i[1] > futuro[0][1]:
+                aux.append(futuro[n])
+    for i in aux:
+        futuro.remove(i)
+    return futuro
+"""
 def dif_1(M,C,F,vidas, turno, sec, futuro):
     if not sec:
         x = random.randint(0,9)
@@ -207,9 +223,8 @@ def dif_1(M,C,F,vidas, turno, sec, futuro):
                             if dentro(x,y+k): 
                                 if C[1][x][y+k] == 0:
                                     futuro.append((x,y+k))
-    return turno, acierto, sec
-    
-"""
+    return turno, acierto, sec, futuro
+    """
 def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
     if not sec:
         x = random.randint(0,9)
@@ -223,10 +238,10 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                         sec = False
                         futuro = []
                     else:
-                        print("HAN TOCADO UN BARCO, PERO TODAVÍA NO ESTÁ HUNDIDO!\n\n\n*****************************************")
                         futuro.append(tupla)
                         sec = True
-                        for k in range(4):
+                        for k in range(1,4):
+                            print("Norte", k)
                             if dentro(x-k,y):
                                 if C[turno][x - k][y] == 0:
                                     futuro.append((x-k,y))
@@ -234,7 +249,8 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                                     break
                             else:
                                 break
-                        for k in range(4):
+                        for k in range(1,4):
+                            print("Sur", k)
                             if dentro(x+k,y):
                                 if C[turno][x + k][y] == 0:
                                     futuro.append((x+k,y))
@@ -242,7 +258,8 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                                     break
                             else:
                                 break
-                        for k in range(4):
+                        for k in range(1,4):
+                            print("Oeste", k)
                             if dentro(x,y-k):
                                 if C[turno][x][y-k] == 0:
                                     futuro.append((x,y-k))
@@ -250,7 +267,8 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                                     break
                             else:
                                 break        
-                        for k in range(4):
+                        for k in range(1,4):
+                            print("Este", k)
                             if dentro(x,y+k):
                                 if C[turno][x][y+k] == 0:
                                     futuro.append((x,y+k))
@@ -258,11 +276,11 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                                     break
                             else:
                                 break
-                        print(futuro)
                             
     else:
-        t = futuro[-1]
-        futuro.pop()
+        t = futuro[1]
+        print(f"ESTOY AQUÍ {t}")
+        futuro.pop(1)
         x = t[0]
         y = t[1]
         turno, acierto = disparo(M,C,F,vidas,x,y,turno)
@@ -274,17 +292,18 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                         futuro = []
         else:
             n = len(futuro)
-            while n > 0:
-                if futuro[n-1] == t:
-                    futuro.pop()
-                    n -= 1
-                else:
-                    break
+            if x < futuro[0][0]:
+                futuro = fallo_dif_1(futuro,'N')
+            elif x > futuro[0][0]:
+                futuro = fallo_dif_1(futuro,'S')
+            elif y < futuro[0][1]:
+                futuro = fallo_dif_1(futuro,'O')
+            else:
+                futuro = fallo_dif_1(futuro,'E')
 
-    return turno, acierto, sec
+    return turno, acierto, sec, futuro
     
 
-"""
 
 
 ### (Nivel 2) Similar al nivel 1, sólo que las próximas tiradas sólo las efectuará si sabe que hay un barco.
