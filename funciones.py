@@ -228,6 +228,8 @@ def dif_1(M,C,F,vidas, turno, sec, futuro):
                                     futuro.append((x,y+k))
     return turno, acierto, sec, futuro
     """
+
+
 def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
     if not sec:
         while True:
@@ -247,7 +249,6 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                         futuro.append(tupla)
                         sec = True
                         for k in range(1,4):
-                            print("Norte", k)
                             if dentro(x-k,y):
                                 if C[turno][x - k][y] == 0:
                                     futuro.append((x-k,y))
@@ -256,7 +257,6 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                             else:
                                 break
                         for k in range(1,4):
-                            print("Sur", k)
                             if dentro(x+k,y):
                                 if C[turno][x + k][y] == 0:
                                     futuro.append((x+k,y))
@@ -265,7 +265,6 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                             else:
                                 break
                         for k in range(1,4):
-                            print("Oeste", k)
                             if dentro(x,y-k):
                                 if C[turno][x][y-k] == 0:
                                     futuro.append((x,y-k))
@@ -274,7 +273,6 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                             else:
                                 break        
                         for k in range(1,4):
-                            print("Este", k)
                             if dentro(x,y+k):
                                 if C[turno][x][y+k] == 0:
                                     futuro.append((x,y+k))
