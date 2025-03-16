@@ -3,7 +3,7 @@
 En este proyecto se ha creado un programa en Python para jugar al juego de Hundir la Flota contra la máquina.
 El programa consta de cinco archivos .py intercomunicados entre sí, en los que cada uno se encarga de realizar unas funciones específicas:
 
-1. inicio_partida.py (el main): En el se inicializa la partida, se llama al archivo `varialbes.py` para inicializar los mapas y parámetros de ambos jugadores y `jugada.py` donde se desarrollan las diferentes tiradas.
+1. inicio_partida.py (el main): En el se inicializa la partida, se llama al archivo `varialbes.py` para inicializar los mapas, (los cuales se podrán imprimir por pantalla antes de comenzar) y parámetros de ambos jugadores y `jugada.py` donde se desarrollan las diferentes tiradas.
 
 2. En la inicialización de variables, se llama al archivo `tablero.py`, donde se asignan las posiciones de los barcos a la matriz de cada jugador, comprobando previamente que no existe ningún conflicto a la hora de desplegar el barco (las posiciones no salen del tablero, ningún otro barco ocupa una posición aledaña, etc.)
 
