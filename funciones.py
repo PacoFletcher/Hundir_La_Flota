@@ -120,8 +120,11 @@ def tira1(M,C,F,vidas,turno):
 ### (Dummy) Todas las tiradas serán aleatorias
 
 def dif_0(M,C,F,vidas, turno):
-    x = random.randint(0,9)
-    y = random.randint(0,9)
+    while True:
+        x = random.randint(0,9)
+        y = random.randint(0,9)
+        if C[turno][x][y] == 0:
+            break
     turno, acierto = disparo(M,C,F,vidas,x,y,turno)
     return turno, acierto
 
@@ -227,8 +230,11 @@ def dif_1(M,C,F,vidas, turno, sec, futuro):
     """
 def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
     if not sec:
-        x = random.randint(0,9)
-        y = random.randint(0,9)
+        while True:
+            x = random.randint(0,9)
+            y = random.randint(0,9)
+            if C[turno][x][y] == 0:
+                break
         turno, acierto = disparo(M,C,F,vidas,x,y,turno)
         if acierto:
             tupla = (x,y)
@@ -312,8 +318,11 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
 
 def dif_2(M,C,F,vidas, turno, sec, futuro):
     if sec == False:
-        x = random.randint(0,9)
-        y = random.randint(0,9)
+        while True:
+            x = random.randint(0,9)
+            y = random.randint(0,9)
+            if C[turno][x][y] == 0:
+                break
         turno, acierto = disparo(M,C,F,vidas,x,y,turno)
         if acierto:
             tupla = (x,y)
