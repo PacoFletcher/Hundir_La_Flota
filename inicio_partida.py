@@ -16,11 +16,13 @@ while True:
     print("Antes de comenzar, debes seleccinar la dificultad de tu contrincante")
     pre = input("Antes de comenzar, quieres consultar los mapas? \n\
           1. Tu mapa\n\
-          2. Mapa del contrincante\n \
-          3. Jugar")
+          2. Mapa del contrincante\n\
+          3. Jugar\n")
     if pre == "1":
+        print("Mapa del jugador 1:")
         funciones.imprime_tablero(M[0])
     elif pre == "2":
+        print("Mapa del jugador 2:")
         funciones.imprime_tablero(M[1])
     while True:
         dif = input("¿Cuál quieres que sea el nivel de dificultad?\n\
