@@ -283,7 +283,7 @@ def dif_1_alt(M,C,F,vidas, turno, sec, futuro):
                             
     else:
         t = futuro[1]
-        print(f"ESTOY AQUÍ {t}")
+        # print(f"ESTOY AQUÍ {t}")
         futuro.pop(1)
         x = t[0]
         y = t[1]
